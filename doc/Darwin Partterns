@@ -1,0 +1,20 @@
+==PreInitialized Singleton==
+Map
+
+==Wrapper Facade==
+OSMutex, Uncopyable
+OSThread, 
+
+==Template Method==
+===Private Virtual Interface===
+OSThread::Entry()
+Task::Run()
+
+==Scoped Locker/Setter==
+Locker
+
+==Semi-synchronous Semi-asynchronous==
+
+==Layers==
+
+==Component Configure==

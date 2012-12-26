@@ -1,0 +1,78 @@
+命令 command_t
+	stop:
+		* -> io_thread_t
+	plug:
+		* -> io_object_t
+	own:
+		* -> object
+		own_t
+
+	attach: 
+		* -> session
+		i_engine
+		
+	bind:
+		session -> socket
+		pipe
+	
+	activate_read:
+		writer -> pipe
+	activate_write:
+		reader -> pipe
+	hiccup:
+		reader -> writer
+	pipe_term:
+		reader -> writer
+	pipe_term_ack:
+		writer -> reader
+	term_req:
+		io_object -> socket
+		io_object
+	term:
+		socket -> io_object
+	term_ack
+		io_object -> socket
+	
+	reap:
+		* -> reaper_t
+		 
+	reaped:
+		reaper_t -> *
+	done:
+		reaper_t -> *
+
+pipe_t:
+
+session_base_t:
+io_object_t: 命令处理
+	process_plug:
+		plug到io_thread后执行，从此可以执行对象动作
+		
+own_t: 所有权继承
+i_poll_events: 处理I/O和计时器事件
+	in_evnet/out_event/timer_event
+	
+i_pipe_events: 处理管道命令?
+i_msg_source: 发出消息
+i_msg_sink: 接收消息
+socket_base_t：
+i_engine： 处理ZMTP协议
+stream_engine_t:
+
+session_base_t:
+	tcp_connecter_t: 
+	tcp_listener_t:
+stream_engine_t:
+	握手, 包括ZMQ协议类型
+	
+
+
+	
+i_encoder: i_msg_source 将msg_t 转化成二进制数据
+	message_ready -> size_ready 两个状态，零拷贝
+i_decoder:
+encoder_t:
+decoder_t:
+
+
+	

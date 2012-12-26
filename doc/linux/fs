@@ -1,0 +1,5 @@
+file_system_type 文件系统
+dentry 目录文件关系
+super_block 超级块在每个文件系统的根上，超级块描述和维护文件系统的状态
+inode 索引节点
+module
